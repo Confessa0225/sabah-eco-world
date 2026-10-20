@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<title>捕鸟蛛骨骼动作预览</title>
+<style>body{margin:0;background:#202923;color:#eee;font:16px sans-serif}header{position:absolute;top:24px;left:24px}button{padding:10px;margin:8px}canvas{display:block}</style>
+<header>捕鸟蛛 · 粉彩材质与骨骼动作 <button id="walk">行走</button><button id="idle">待机</button><button id="outline">切换交互描边</button><button id="reveal">切换发现状态</button><p id="status">加载中</p></header>
+<script type="module">
+import * as THREE from 'three'
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+import { getModelBounds } from '../src/modelBounds.js'
+import { attachAnimalAnimation, updateAnimalAnimation } from '../src/animalAnimation.js'
+import { createDiscoveryMaterial } from '../src/discoveryMaterial.js'
+import { createInteractionOutline } from '../src/interactionOutline.js'
+const renderer = new THREE.WebGLRenderer({antialias:true})
+renderer.setSize(innerWidth, innerHeight)
+document.body.appendChild(renderer.domElement)
+const scene = new THREE.Scene()
+scene.background = new THREE.Color('#202923')
+scene.add(new THREE.HemisphereLight(0xffffff,0x758a70,3))
+const light = new THREE.DirectionalLight(0xffffff,4)
+light.position.set(3,5,4)
+scene.add(light)
+const camera = new THREE.PerspectiveCamera(40,innerWidth/innerHeight,.01,100)
+camera.position.set(4,3,5)
+camera.lookAt(0,.6,0)
+const gltf = await new GLTFLoader().loadAsync('/Animals.undefined-glb/Spider.glb')
+const model=gltf.scene
+const materials=[]
+model.traverse(object=>{
+  if(!object.isMesh)return
+  const prepare=source=>{const material=createDiscoveryMaterial(source,object.geometry);material.userData.discoveryReveal.value=1;materials.push(material);return material}
+  object.material=Array.isArray(object.material)?object.material.map(prepare):prepare(object.material)
+})
+const box=getModelBounds(model)
+const size=box.getSize(new THREE.Vector3())
+model.scale.setScalar(3/Math.max(size.x,size.y,size.z))
+const scaled=getModelBounds(model)
+const center=scaled.getCenter(new THREE.Vector3())
+model.position.set(-center.x,-scaled.min.y,-center.z)
+const animal=new THREE.Group()
+animal.add(model)
+scene.add(animal)
+attachAnimalAnimation(animal,gltf.animations)
+let walking=true
+let outlined=true, revealed=true
+const outline=createInteractionOutline(renderer,scene,camera)
+document.getElementById('outline').onclick=()=>{outlined=!outlined}
+document.getElementById('reveal').onclick=()=>{revealed=!revealed;materials.forEach(m=>m.userData.discoveryReveal.value=revealed?1:0)}
+const status=document.getElementById('status')
+function label(){status.textContent=walking?'播放 Spider_Walk：观察八条腿交替迈动':'播放 Spider_Idle：身体待机动作'}
+document.getElementById('walk').onclick=()=>{walking=true;label()}
+document.getElementById('idle').onclick=()=>{walking=false;label()}
+label()
+const clock=new THREE.Clock()
+renderer.setAnimationLoop(()=>{const delta=Math.min(clock.getDelta(),.05);updateAnimalAnimation(animal,delta,walking);outline.render(outlined?animal:null,delta)})
+addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);outline.resize(innerWidth,innerHeight)})
+</script>
+</html>

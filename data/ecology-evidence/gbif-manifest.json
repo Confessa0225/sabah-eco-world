@@ -1,0 +1,527 @@
+[
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0",
+    "file": "8aa4bd8de31962f54d06.json",
+    "retrievedAt": "2026-10-13T13:20:08.291Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=1000",
+    "file": "003f60dbd9359916db58.json",
+    "retrievedAt": "2026-10-13T13:20:09.071Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=6",
+    "file": "0d8df158dd5d1b14cd78.json",
+    "retrievedAt": "2026-10-13T13:20:09.448Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=5",
+    "file": "c8d806311dd50be63c1c.json",
+    "retrievedAt": "2026-10-13T13:20:10.031Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=classKey&facetLimit=1000&facetOffset=0&taxonKey=1",
+    "file": "6224fc5680df7983846a.json",
+    "retrievedAt": "2026-10-13T13:20:10.579Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/212",
+    "file": "05dce46d5653e311066a.json",
+    "retrievedAt": "2026-10-13T13:20:10.842Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=212",
+    "file": "0e562af5dd92d5b30311.json",
+    "retrievedAt": "2026-10-13T13:20:11.210Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/216",
+    "file": "f07d6cf20332399c9156.json",
+    "retrievedAt": "2026-10-13T13:20:11.491Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=216",
+    "file": "9cdaaebf3d6814031620.json",
+    "retrievedAt": "2026-10-13T13:20:11.833Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/359",
+    "file": "4f04218c1ab9e5d90e57.json",
+    "retrievedAt": "2026-10-13T13:20:12.104Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=359",
+    "file": "818b45acda4f6d528978.json",
+    "retrievedAt": "2026-10-13T13:20:12.573Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/11592253",
+    "file": "62ed3af2f751017357a6.json",
+    "retrievedAt": "2026-10-13T13:20:12.843Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=11592253",
+    "file": "01c79048685bcf21f551.json",
+    "retrievedAt": "2026-10-13T13:20:13.500Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/131",
+    "file": "20c980c674c2e8b29706.json",
+    "retrievedAt": "2026-10-13T13:20:13.767Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=131",
+    "file": "e3d6e2d79552c5af5b9b.json",
+    "retrievedAt": "2026-10-13T13:20:14.324Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/367",
+    "file": "4677f25b6224aaf9f513.json",
+    "retrievedAt": "2026-10-13T13:20:14.597Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=367",
+    "file": "c52c78737592838a5e60.json",
+    "retrievedAt": "2026-10-13T13:20:15.223Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/361",
+    "file": "54fd842b266ef4499f73.json",
+    "retrievedAt": "2026-10-13T13:20:15.496Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=361",
+    "file": "7c2099c369032afd48b0.json",
+    "retrievedAt": "2026-10-13T13:20:15.991Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/255",
+    "file": "4c00525662cff3be8d45.json",
+    "retrievedAt": "2026-10-13T13:20:16.276Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=255",
+    "file": "7f8f0c4904252cb8c7a9.json",
+    "retrievedAt": "2026-10-13T13:20:16.881Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/229",
+    "file": "5b3625fe0d237cf43528.json",
+    "retrievedAt": "2026-10-13T13:20:17.154Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=229",
+    "file": "22c46eea69f0c93c3ad2.json",
+    "retrievedAt": "2026-10-13T13:20:17.721Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/225",
+    "file": "2630022ce74fc3178599.json",
+    "retrievedAt": "2026-10-13T13:20:18.004Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=225",
+    "file": "9d358c61fbc0c9d254f8.json",
+    "retrievedAt": "2026-10-13T13:20:18.447Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/11418114",
+    "file": "d574dfc1af4d9b5c8660.json",
+    "retrievedAt": "2026-10-13T13:20:18.728Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=11418114",
+    "file": "1208fb47ecdb9e9acc4b.json",
+    "retrievedAt": "2026-10-13T13:20:19.311Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/11493978",
+    "file": "e2b47d4dbceab87a9957.json",
+    "retrievedAt": "2026-10-13T13:20:19.582Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=11493978",
+    "file": "e5fd7c8ec0e06d7d3f4a.json",
+    "retrievedAt": "2026-10-13T13:20:24.093Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/206",
+    "file": "9208cc682ca1d90bfc73.json",
+    "retrievedAt": "2026-10-13T13:20:24.391Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=206",
+    "file": "349655ae87446dee14d3.json",
+    "retrievedAt": "2026-10-13T13:20:25.797Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/360",
+    "file": "fcf68887e95d2be27117.json",
+    "retrievedAt": "2026-10-13T13:20:26.073Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=360",
+    "file": "d72871f27023066796fa.json",
+    "retrievedAt": "2026-10-13T13:20:26.648Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/10713444",
+    "file": "77699a55fb98ad8d6b98.json",
+    "retrievedAt": "2026-10-13T13:20:26.929Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=10713444",
+    "file": "f02b2afbfb7e83aa9839.json",
+    "retrievedAt": "2026-10-13T13:20:27.600Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/136",
+    "file": "708465becfabe4efe4c0.json",
+    "retrievedAt": "2026-10-13T13:20:27.875Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=136",
+    "file": "1088962724b61cd48389.json",
+    "retrievedAt": "2026-10-13T13:20:28.273Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/222",
+    "file": "3f97434b8465f6af9f54.json",
+    "retrievedAt": "2026-10-13T13:20:28.547Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=222",
+    "file": "b65656d275c8a573ffef.json",
+    "retrievedAt": "2026-10-13T13:20:29.004Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=1",
+    "file": "612e287c008ec18b60cd.json",
+    "retrievedAt": "2026-10-13T13:20:29.372Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=4.755422%2C5.204578&decimalLongitude=117.574571%2C118.025429&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=1000&taxonKey=1",
+    "file": "3cd353ddb7bdc049d1bd.json",
+    "retrievedAt": "2026-10-13T13:20:30.012Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0",
+    "file": "8e434868eab6bd991da4.json",
+    "retrievedAt": "2026-10-13T13:20:30.452Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=6",
+    "file": "3903d57fe06e33e23918.json",
+    "retrievedAt": "2026-10-13T13:20:31.004Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=5",
+    "file": "0a4d87b5c5572ec135a0.json",
+    "retrievedAt": "2026-10-13T13:20:31.387Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=classKey&facetLimit=1000&facetOffset=0&taxonKey=1",
+    "file": "ec9ce34ce4880b01a5b6.json",
+    "retrievedAt": "2026-10-13T13:20:32.026Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=359",
+    "file": "34bb0df97f9660c4fffd.json",
+    "retrievedAt": "2026-10-13T13:20:32.940Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=212",
+    "file": "48ef52e67839250f2e27.json",
+    "retrievedAt": "2026-10-13T13:20:33.293Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=216",
+    "file": "3871dbc6c32b75ed0526.json",
+    "retrievedAt": "2026-10-13T13:20:33.762Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/11545536",
+    "file": "614154ffa8a72d55dacc.json",
+    "retrievedAt": "2026-10-13T13:20:34.034Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=11545536",
+    "file": "9719ee196ed6ebbf028d.json",
+    "retrievedAt": "2026-10-13T13:20:35.161Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/205",
+    "file": "3e2a7e53234a454d81ae.json",
+    "retrievedAt": "2026-10-13T13:20:35.447Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=205",
+    "file": "250240e5c8500c9534c3.json",
+    "retrievedAt": "2026-10-13T13:20:36.916Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/121",
+    "file": "982f85e732832dd78ac3.json",
+    "retrievedAt": "2026-10-13T13:20:37.184Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=121",
+    "file": "31cf50bedcd52a50c3bc.json",
+    "retrievedAt": "2026-10-13T13:20:37.632Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=229",
+    "file": "2e33ced4ef9aa8db036d.json",
+    "retrievedAt": "2026-10-13T13:20:37.976Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=367",
+    "file": "da4af9636a61f7ff2bba.json",
+    "retrievedAt": "2026-10-13T13:20:38.556Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=131",
+    "file": "0dea7965c96e65582b41.json",
+    "retrievedAt": "2026-10-13T13:20:39.225Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/350",
+    "file": "b05bac974b7734ebd53d.json",
+    "retrievedAt": "2026-10-13T13:20:39.495Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=350",
+    "file": "f3325200f828b09731af.json",
+    "retrievedAt": "2026-10-13T13:20:39.840Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/137",
+    "file": "4e0f8b5930ff897909ba.json",
+    "retrievedAt": "2026-10-13T13:20:40.109Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=137",
+    "file": "709b44972a6b2da5ce9b.json",
+    "retrievedAt": "2026-10-13T13:20:40.557Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=225",
+    "file": "53c2e6542be5674e7be1.json",
+    "retrievedAt": "2026-10-13T13:20:41.044Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/7920181",
+    "file": "0d6e5d8dbb78e9c7010c.json",
+    "retrievedAt": "2026-10-13T13:20:41.314Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=7920181",
+    "file": "857cab00496424968319.json",
+    "retrievedAt": "2026-10-13T13:20:41.731Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/256",
+    "file": "97d65ef5adc7d7b9b02e.json",
+    "retrievedAt": "2026-10-13T13:20:41.996Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=256",
+    "file": "a8ae81d0f8616b54d44f.json",
+    "retrievedAt": "2026-10-13T13:20:42.330Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/307",
+    "file": "594841c9d2623ed70d6b.json",
+    "retrievedAt": "2026-10-13T13:20:42.607Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=307",
+    "file": "1ff89ccb9c0f75212857.json",
+    "retrievedAt": "2026-10-13T13:20:42.943Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=206",
+    "file": "505795dbdb86aceb1278.json",
+    "retrievedAt": "2026-10-13T13:20:43.287Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/281",
+    "file": "753868ed5adec9ac074b.json",
+    "retrievedAt": "2026-10-13T13:20:43.569Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=281",
+    "file": "a751f5b4a5c009952de2.json",
+    "retrievedAt": "2026-10-13T13:20:44.126Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=11493978",
+    "file": "099bd498d6ee37623e4b.json",
+    "retrievedAt": "2026-10-13T13:20:44.663Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=11592253",
+    "file": "a341eeabb47824c458e7.json",
+    "retrievedAt": "2026-10-13T13:20:45.021Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/199",
+    "file": "6c9cae9b60c484a0c005.json",
+    "retrievedAt": "2026-10-13T13:20:45.309Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=199",
+    "file": "a5334f74d2b06e49d604.json",
+    "retrievedAt": "2026-10-13T13:20:45.813Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/10482560",
+    "file": "45469f67667a17f607f9.json",
+    "retrievedAt": "2026-10-13T13:20:46.098Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=10482560",
+    "file": "f5895c81fbf411b2c51d.json",
+    "retrievedAt": "2026-10-13T13:20:46.556Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/352",
+    "file": "272cebf399c23bfbf888.json",
+    "retrievedAt": "2026-10-13T13:20:46.852Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=352",
+    "file": "b6c5c5072f1efb7d95c8.json",
+    "retrievedAt": "2026-10-13T13:20:47.202Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/species/203",
+    "file": "8e5bb12027526edb787a.json",
+    "retrievedAt": "2026-10-13T13:20:47.482Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=203",
+    "file": "c6940f94ec3da63861a7.json",
+    "retrievedAt": "2026-10-13T13:20:48.206Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=11418114",
+    "file": "37fcec2530cb644363da.json",
+    "retrievedAt": "2026-10-13T13:20:48.941Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=21.725422%2C22.174578&decimalLongitude=88.941203%2C89.425463&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=1",
+    "file": "e003c758cdab199cd4b9.json",
+    "retrievedAt": "2026-10-13T13:20:49.306Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0",
+    "file": "f7e973264526fc5e3cd7.json",
+    "retrievedAt": "2026-10-13T13:20:49.701Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=6",
+    "file": "f5d7ca9fcf5d46f19867.json",
+    "retrievedAt": "2026-10-13T13:20:50.063Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=5",
+    "file": "28c0144f66c2ddecb8e5.json",
+    "retrievedAt": "2026-10-13T13:20:50.570Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=classKey&facetLimit=1000&facetOffset=0&taxonKey=1",
+    "file": "fd0690c048649b7aabb7.json",
+    "retrievedAt": "2026-10-13T13:20:50.942Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=212",
+    "file": "04ba7da2fbf3d9057bbb.json",
+    "retrievedAt": "2026-10-13T13:20:51.310Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=359",
+    "file": "882e594588b92eebf8f2.json",
+    "retrievedAt": "2026-10-13T13:20:51.653Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=216",
+    "file": "f33f23435ce88d5b6e1a.json",
+    "retrievedAt": "2026-10-13T13:20:51.990Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=11592253",
+    "file": "b90f36afe04cc8148eb8.json",
+    "retrievedAt": "2026-10-13T13:20:52.817Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=11493978",
+    "file": "0d1783d9aabc80b9868d.json",
+    "retrievedAt": "2026-10-13T13:20:53.286Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=11418114",
+    "file": "f9251a27c52361d4e265.json",
+    "retrievedAt": "2026-10-13T13:20:53.777Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=131",
+    "file": "9604f7671b737cdc4230.json",
+    "retrievedAt": "2026-10-13T13:20:54.159Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=367",
+    "file": "bd3984290a30a1988204.json",
+    "retrievedAt": "2026-10-13T13:20:54.796Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=-2.557911%2C-2.108755&decimalLongitude=34.341903%2C34.791431&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=1",
+    "file": "ab41f5fe75f712ef2b81.json",
+    "retrievedAt": "2026-10-13T13:20:55.227Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=27.7407%2C28.189856&decimalLongitude=86.658788%2C87.167324&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0",
+    "file": "abac382d4b3db7a55b9a.json",
+    "retrievedAt": "2026-10-13T13:20:55.906Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=27.7407%2C28.189856&decimalLongitude=86.658788%2C87.167324&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=6",
+    "file": "02651edf7ea083f689f5.json",
+    "retrievedAt": "2026-10-13T13:20:56.312Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=27.7407%2C28.189856&decimalLongitude=86.658788%2C87.167324&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=5",
+    "file": "fa9519ee0acfb5e8f5e1.json",
+    "retrievedAt": "2026-10-13T13:20:56.722Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=27.7407%2C28.189856&decimalLongitude=86.658788%2C87.167324&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=classKey&facetLimit=1000&facetOffset=0&taxonKey=1",
+    "file": "3899a3954fea0086dfa5.json",
+    "retrievedAt": "2026-10-13T13:20:57.716Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=27.7407%2C28.189856&decimalLongitude=86.658788%2C87.167324&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=212",
+    "file": "95aa2211b0a6475642bc.json",
+    "retrievedAt": "2026-10-13T13:20:58.078Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=27.7407%2C28.189856&decimalLongitude=86.658788%2C87.167324&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=359",
+    "file": "32cb31c9a8afefcedbdc.json",
+    "retrievedAt": "2026-10-13T13:20:58.636Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=27.7407%2C28.189856&decimalLongitude=86.658788%2C87.167324&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=216",
+    "file": "a97935d8645b8fceacc1.json",
+    "retrievedAt": "2026-10-13T13:20:59.428Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=27.7407%2C28.189856&decimalLongitude=86.658788%2C87.167324&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=361",
+    "file": "23f3a617849819193e13.json",
+    "retrievedAt": "2026-10-13T13:21:00.645Z"
+  },
+  {
+    "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=27.7407%2C28.189856&decimalLongitude=86.658788%2C87.167324&year=2015%2C2025&hasCoordinate=true&hasGeospatialIssue=false&occurrenceStatus=PRESENT&limit=0&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=PRESERVED_SPECIMEN&facet=speciesKey&facetLimit=1000&facetOffset=0&taxonKey=1",
+    "file": "b98107334480f0e04f03.json",
+    "retrievedAt": "2026-10-13T13:21:02.965Z"
+  }
+]

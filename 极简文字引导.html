@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>《苔痕之下》｜极简文字引导</title>
+  <style>
+    :root {
+      --bg: #171a17;
+      --panel: #222622;
+      --panel-soft: #272c27;
+      --line: #424a41;
+      --text: #edf0e8;
+      --muted: #b0b8ad;
+      --faint: #828c80;
+      --accent: #cbd9c4;
+      --warm: #d9c6a4;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+      line-height: 1.65;
+      letter-spacing: .02em;
+    }
+    .page { max-width: 1100px; margin: 0 auto; padding: 40px 24px 72px; }
+    .eyebrow { font-size: 12px; letter-spacing: .22em; color: var(--faint); text-transform: uppercase; }
+    h1 { font-weight: 400; font-size: clamp(30px, 5vw, 48px); line-height: 1.2; margin: 10px 0 12px; letter-spacing: .08em; }
+    .subtitle { color: var(--muted); font-size: 14px; margin: 0; }
+    .intro { padding-bottom: 28px; border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+    .section-title { font-weight: 400; font-size: 20px; margin: 0 0 8px; }
+    .section-desc { color: var(--muted); font-size: 13px; margin: 0 0 18px; }
+    .stage { margin: 30px 0 38px; }
+    .stage-head { display: flex; gap: 12px; align-items: baseline; margin-bottom: 14px; }
+    .stage-num { color: var(--faint); font-size: 12px; letter-spacing: .14em; }
+    .stage-name { font-size: 17px; font-weight: 500; }
+    .mockup {
+      min-height: 190px;
+      background: radial-gradient(ellipse at 50% 32%, #30372f 0%, #252a24 38%, #1f231f 100%);
+      border: 1px solid #394138;
+      border-radius: 14px;
+      padding: 30px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .mockup:before, .mockup:after { content: ""; position: absolute; border: 1px solid rgba(203,217,196,.07); border-radius: 50%; pointer-events: none; }
+    .mockup:before { width: 320px; height: 180px; transform: rotate(-16deg); }
+    .mockup:after { width: 470px; height: 250px; transform: rotate(14deg); }
+    .mockup-inner { position: relative; z-index: 1; max-width: 620px; }
+    .micro { color: var(--faint); font-size: 10px; letter-spacing: .22em; margin-bottom: 18px; }
+    .hero-line { font-size: clamp(20px, 3vw, 28px); font-weight: 300; letter-spacing: .1em; line-height: 1.5; }
+    .hint-line { font-size: 17px; font-weight: 300; letter-spacing: .08em; }
+    .subhint { color: var(--muted); font-size: 12px; margin-top: 13px; }
+    .species-title { font-size: 28px; font-weight: 400; letter-spacing: .16em; margin-bottom: 12px; }
+    .species-copy { max-width: 430px; margin: auto; font-size: 14px; color: #d3d9cf; }
+    .divider { width: 56px; height: 1px; background: #727d6e; margin: 19px auto 15px; }
+    .mock-caption { color: var(--faint); font-size: 12px; margin: 10px 2px 0; }
+    .notes { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin-top: 18px; }
+    .note { padding: 16px 17px; background: var(--panel); border: 1px solid #343b33; border-radius: 10px; }
+    .note h3 { font-size: 14px; font-weight: 500; margin: 0 0 6px; color: var(--accent); }
+    .note p { color: var(--muted); font-size: 13px; margin: 0; }
+    .rules { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 18px; }
+    .rule { background: var(--panel); border: 1px solid #343b33; border-radius: 10px; padding: 16px; }
+    .rule strong { display:block; font-size: 13px; font-weight:500; margin-bottom: 6px; }
+    .rule span { color: var(--muted); font-size: 12px; }
+    .closing { margin-top: 42px; padding: 24px 0 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .closing strong { color: var(--text); font-weight: 500; }
+    @media (max-width: 700px) {
+      .page { padding: 28px 16px 48px; }
+      .mockup { min-height: 160px; padding: 24px 16px; }
+      .notes { grid-template-columns: 1fr; }
+      .rules { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media print {
+      body { background: #171a17 !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .page { max-width: none; padding: 16mm; }
+      .stage, .note, .rule, .mockup { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <div class="eyebrow">ECHOES OF EARTH · TEXT & UI GUIDE</div>
+      <h1>苔痕之下</h1>
+      <p class="subtitle">极简文字引导｜黑底界面示意｜第一人称生态探索游戏</p>
+    </header>
+
+    <section class="stage">
+      <div class="stage-head"><span class="stage-num">PROLOGUE</span><span class="stage-name">序章｜进入森林</span></div>
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="micro">森林深处</div>
+          <div class="hero-line">有些生命，尚未被看见。</div>
+        </div>
+      </div>
+      <p class="mock-caption">画面渐入后出现，停留片刻，再缓慢淡出。</p>
+    </section>
+
+    <section class="stage">
+      <div class="stage-head"><span class="stage-num">01</span><span class="stage-name">苔藓｜第一次触碰</span></div>
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="hint-line">触碰苔痕</div>
+          <div class="subhint">鼠标点击</div>
+        </div>
+      </div>
+      <p class="mock-caption">仅用于首次操作教学。完成交互后，文字立即淡出，让色彩变化承担反馈。</p>
+    </section>
+
+    <section class="stage">
+      <div class="stage-head"><span class="stage-num">02</span><span class="stage-name">蕨叶｜参与生长</span></div>
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="hint-line">沿着叶尖，向外舒展。</div>
+          <div class="subhint">按住鼠标，沿卷曲方向拖动</div>
+        </div>
+      </div>
+      <p class="mock-caption">文字出现时，卷曲叶尖产生微弱高光；不再叠加额外箭头或任务面板。</p>
+    </section>
+
+    <section class="stage">
+      <div class="stage-head"><span class="stage-num">03</span><span class="stage-name">溪流｜追随落蕨叶</span></div>
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="hero-line">让水声，继续向前。</div>
+        </div>
+      </div>
+      <p class="mock-caption">蕨叶舒展、镜头拉远后短暂出现；随后由漂流的蕨叶、水波和水声引导玩家。</p>
+    </section>
+
+    <section class="stage">
+      <div class="stage-head"><span class="stage-num">04</span><span class="stage-name">蘑菇｜孢子引路</span></div>
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="hint-line">轻叩菌盖。</div>
+        </div>
+      </div>
+      <p class="mock-caption">靠近蘑菇时出现操作提示。孢子散落后不再显示文字，玩家自然跟随粒子前往古树。</p>
+    </section>
+
+    <section class="stage">
+      <div class="stage-head"><span class="stage-num">05</span><span class="stage-name">古树｜观察生命的活动</span></div>
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="hint-line">看看它停留的地方。</div>
+        </div>
+      </div>
+      <p class="mock-caption">小鸟出现并在树根间跳跃时短暂出现。之后通过小鸟的动作提示观察位置。</p>
+    </section>
+
+    <section class="stage">
+      <div class="stage-head"><span class="stage-num">06</span><span class="stage-name">落叶｜寻找隐藏的生命</span></div>
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="hero-line">有些生命，藏在落叶之下。</div>
+          <div class="subhint">用鼠标拖开落叶</div>
+        </div>
+      </div>
+      <p class="mock-caption">小鸟在落叶间啄动后出现。玩家开始移开落叶时文字淡出，将注意力留给植物显现。</p>
+    </section>
+
+    <section class="stage">
+      <div class="stage-head"><span class="stage-num">07</span><span class="stage-name">发现｜屋久岛草</span></div>
+      <div class="mockup" style="min-height:230px;">
+        <div class="mockup-inner">
+          <div class="micro">SPECIES RECORD · 01</div>
+          <div class="species-title">屋久岛草</div>
+          <div class="species-copy">一种没有叶绿素、依赖真菌获取营养的植物。</div>
+          <div class="divider"></div>
+          <div class="subhint">画面静止片刻，随后镜头缓慢抬升</div>
+        </div>
+      </div>
+      <p class="mock-caption">最终物种记录卡。正式版建议附上可信的科学资料来源；物种的出现位置属于关卡艺术化设计。</p>
+    </section>
+
+    <section class="stage">
+      <div class="stage-head"><span class="stage-num">ENDING</span><span class="stage-name">结尾｜森林全景复色</span></div>
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="hero-line">你终于看见了它。</div>
+        </div>
+      </div>
+      <p class="mock-caption">森林恢复完整色彩后出现；随着镜头抬升，文字逐渐消失，最后只留下环境声。</p>
+    </section>
+
+    <section class="stage">
+      <h2 class="section-title">文字使用原则</h2>
+      <p class="section-desc">文字只在玩家需要理解、停顿或发现新事物时出现，不持续覆盖探索过程。</p>
+      <div class="rules">
+        <div class="rule"><strong>短句优先</strong><span>每次只出现一条主要信息，不写长段任务说明。</span></div>
+        <div class="rule"><strong>低对比装饰</strong><span>使用柔和的灰白文字，不使用高饱和提示色或大面积文字底框。</span></div>
+        <div class="rule"><strong>淡入淡出</strong><span>文字温和出现，完成操作后消失，不使用突兀弹窗。</span></div>
+        <div class="rule"><strong>让环境说话</strong><span>优先用光点、植物动作、粒子和声音提示，文字只补足必要信息。</span></div>
+      </div>
+    </section>
+
+    <footer class="closing">
+      <strong>文案基调：</strong>像森林偶尔传来的低语。文字轻轻提醒玩家，然后把空间重新交还给自然。<br />
+      <span>注：本页为 UI 与文案效果示意，不含真实游戏画面；黑底、留白、字距与布局可直接作为视觉参考。</span>
+    </footer>
+  </main>
+</body>
+</html>

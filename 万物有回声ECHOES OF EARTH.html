@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoExplorer · 自然探索 - 探索自然之美 守护绿色家园</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS Variables - 森系色彩体系 ===== */
+        :root {
+            --color-deep-forest: #0d2818;
+            --color-forest: #1a3a0a;
+            --color-forest-mid: #2d5016;
+            --color-green: #4a7c2e;
+            --color-green-light: #6b9b3a;
+            --color-sprout: #8fbc5a;
+            --color-moss: #a8d5a2;
+            --color-leaf: #c5e8c0;
+            --color-pale: #e8f5e0;
+            --color-fog: #f0f7e8;
+            --color-mist: #f5faf3;
+            --color-white: #ffffff;
+            --color-text: #1a2e1a;
+            --color-text-light: #4a5e4a;
+            --color-text-muted: #7a8e7a;
+            --shadow-sm: 0 2px 8px rgba(26, 58, 10, 0.08);
+            --shadow-md: 0 8px 30px rgba(26, 58, 10, 0.12);
+            --shadow-lg: 0 20px 60px rgba(26, 58, 10, 0.15);
+            --shadow-xl: 0 30px 80px rgba(26, 58, 10, 0.20);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --transition-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-spring: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory; /* 整页吸附：滚动一次切换一页 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--color-mist);
+            color: var(--color-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        button { border: none; background: none; cursor: pointer; font-family: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ===== 整页分页布局 ===== */
+        .page {
+            position: relative;
+            height: 100vh;
+            height: 100dvh;      /* 移动端地址栏收缩时也保持满屏 */
+            min-height: 560px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            scroll-snap-align: start;
+            scroll-snap-stop: always; /* 一次滚动只翻一页 */
+        }
+
+        /* ===== 右侧页码指示点 ===== */
+        .page-dots {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            z-index: 900;
+        }
+
+        .page-dot {
+            width: 10px;
+            height: 10px;
+            padding: 0;
+            border-radius: 50%;
+            background: var(--color-moss);
+            opacity: 0.5;
+            transition: var(--transition-smooth);
+        }
+
+        .page-dot:hover { opacity: 0.85; transform: scale(1.25); }
+
+        .page-dot.active {
+            height: 28px;
+            border-radius: 6px;
+            background: var(--color-forest);
+            opacity: 1;
+        }
+
+        @media (max-width: 900px) {
+            .page-dots { display: none; }
+        }
+
+        /* ===== 流动背景光斑 ===== */
+        .ambient-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .ambient-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: floatBlob 20s infinite ease-in-out;
+        }
+
+        .ambient-blob:nth-child(1) {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--color-leaf) 0%, transparent 70%);
+            top: -200px; left: -100px;
+            animation-delay: 0s;
+        }
+
+        .ambient-blob:nth-child(2) {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--color-pale) 0%, transparent 70%);
+            top: 40%; right: -150px;
+            animation-delay: -7s;
+            animation-duration: 25s;
+        }
+
+        .ambient-blob:nth-child(3) {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, var(--color-moss) 0%, transparent 70%);
+            bottom: -100px; left: 30%;
+            animation-delay: -14s;
+            animation-duration: 22s;
+        }
+
+        @keyframes floatBlob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.95); }
+            75% { transform: translate(40px, 20px) scale(1.05); }
+        }
+
+        /* ===== 导航栏 ===== */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1.2rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-sm);
+            padding: 0.8rem 3rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--color-forest);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo svg {
+            width: 32px; height: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 2.5rem;
+            margin-left: auto; /* 导航链接整体靠右对齐 */
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-text-light);
+            position: relative;
+            transition: var(--transition-fast);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: var(--color-green);
+            transition: var(--transition-smooth);
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover { color: var(--color-forest); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* ===== 第1页：封面 ===== */
+        .hero {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 7rem 2rem 6rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            background: var(--color-pale);
+            border: 1px solid var(--color-leaf);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-green);
+            margin-bottom: clamp(1.2rem, 3vh, 2rem);
+        }
+
+        .hero-badge .dot {
+            width: 8px; height: 8px;
+            background: var(--color-sprout);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .cover-title {
+            font-size: clamp(3rem, 9vw, 7.5rem);
+            font-weight: 900;
+            line-height: 1.12;
+            letter-spacing: 0.08em;
+            padding-left: 0.08em;
+            margin-bottom: clamp(0.9rem, 2.2vh, 1.6rem);
+            background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-green) 55%, var(--color-sprout) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cover-title-en {
+            display: block;
+            font-size: clamp(0.9rem, 1.9vw, 1.45rem);
+            font-weight: 700;
+            letter-spacing: 0.42em;
+            padding-left: 0.42em;
+            text-transform: uppercase;
+            color: var(--color-green);
+            /* 父级用了 background-clip:text，这里要还原成实色，否则会被裁成透明 */
+            -webkit-text-fill-color: var(--color-green);
+            margin-top: clamp(0.6rem, 1.6vh, 1.1rem);
+        }
+
+        .cover-divider {
+            width: 90px; height: 3px;
+            margin: 0 auto clamp(1.4rem, 3.4vh, 2.4rem);
+            border-radius: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-sprout), transparent);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+            color: var(--color-text-muted);
+            max-width: 640px;
+            margin: 0 auto clamp(1.8rem, 4.5vh, 3rem);
+            line-height: 1.9;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: var(--color-forest);
+            color: var(--color-white);
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: var(--transition-smooth);
+            box-shadow: 0 8px 30px rgba(26, 58, 10, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover::before { left: 100%; }
+
+        .btn-primary:hover {
+            background: var(--color-green);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(26, 58, 10, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--color-forest);
+            border: 2px solid var(--color-leaf);
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-pale);
+            border-color: var(--color-sprout);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* 滚动提示需要保留水平居中，单独覆盖 .reveal 的位移 */
+        .scroll-indicator.reveal { transform: translateX(-50%) translateY(30px); }
+        .scroll-indicator.reveal.visible { transform: translateX(-50%) translateY(0); }
+
+        .scroll-indicator span {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .scroll-mouse {
+            width: 26px; height: 42px;
+            border: 2px solid var(--color-moss);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-mouse::before {
+            content: '';
+            position: absolute;
+            top: 8px; left: 50%;
+            transform: translateX(-50%);
+            width: 4px; height: 4px;
+            background: var(--color-green);
+            border-radius: 50%;
+            animation: scrollWheel 2s infinite;
+        }
+
+        @keyframes scrollWheel {
+            0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(12px); }
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        /* ===== 粒子容器 ===== */
+        #particles-container {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: floatParticle linear infinite;
+        }
+
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* ===== 第2页：场景探索 ===== */
+        .page--scenes {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 5.5rem 2.5rem 2rem;
+        }
+
+        .section-header {
+            flex: 0 0 auto;
+            text-align: center;
+            margin-bottom: clamp(1rem, 2.6vh, 2.2rem);
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--color-green);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.45rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.7rem, 3.4vw, 2.9rem);
+            font-weight: 900;
+            color: var(--color-forest);
+            letter-spacing: -1px;
+            margin-bottom: 0.35rem;
+            line-height: 1.2;
+        }
+
+        .section-title-en {
+            display: block;
+            font-size: clamp(0.68rem, 1.05vw, 0.85rem);
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            padding-left: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-green);
+            margin-bottom: clamp(0.5rem, 1.4vh, 0.9rem);
+        }
+
+        .section-desc {
+            font-size: clamp(0.76rem, 1.5vh, 0.95rem);
+            color: var(--color-text-muted);
+            max-width: 660px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===== 场景卡片网格：铺满剩余高度 ===== */
+        .scenes-grid {
+            flex: 1 1 auto;
+            min-height: 0;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-rows: repeat(2, minmax(0, 1fr));
+            gap: clamp(0.8rem, 1.6vh, 1.4rem);
+        }
+
+        /* ===== 场景卡片 ===== */
+        .scene-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-spring);
+            transform-style: preserve-3d;
+            will-change: transform;
+            position: relative;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .scene-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scene-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .scene-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-sprout), var(--color-green), var(--color-forest));
+            opacity: 0;
+            transition: var(--transition-smooth);
+            z-index: 1;
+        }
+
+        .scene-card:hover::before { opacity: 1; }
+
+        .scene-card-visual {
+            flex: 0 1 36%;      /* 高度不够时优先压缩插图，文字优先 */
+            min-height: 62px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scene-card-visual svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            transition: var(--transition-smooth);
+        }
+
+        .scene-card:hover .scene-card-visual svg {
+            transform: scale(1.06);
+        }
+
+        .scene-card-content {
+            flex: 1 1 auto;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            padding: clamp(0.7rem, 1.7vh, 1.15rem) clamp(0.85rem, 1.1vw, 1.25rem);
+        }
+
+        .scene-card-tag,
+        .scene-card-title,
+        .scene-card-en,
+        .scene-card-footer { flex: none; }
+
+        .scene-card-tag {
+            align-self: flex-start;
+            padding: 0.2rem 0.7rem;
+            background: var(--color-fog);
+            color: var(--color-green);
+            border-radius: 100px;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: clamp(0.25rem, 0.9vh, 0.5rem);
+        }
+
+        .scene-card-title {
+            font-size: clamp(1rem, 1.35vw, 1.28rem);
+            font-weight: 900;
+            color: var(--color-forest);
+            letter-spacing: -0.5px;
+            margin-bottom: 0.1rem;
+        }
+
+        .scene-card-en {
+            font-size: clamp(0.62rem, 0.85vw, 0.74rem);
+            font-weight: 600;
+            color: var(--color-green);
+            letter-spacing: 0.04em;
+            opacity: 0.85;
+            margin-bottom: clamp(0.3rem, 1vh, 0.6rem);
+        }
+
+        .scene-card-desc {
+            flex: 1 1 auto;
+            min-height: 0;
+            font-size: clamp(0.7rem, 0.95vw, 0.82rem);
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            display: -webkit-box;
+            line-clamp: 3;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .scene-card-footer {
+            margin-top: auto;
+            padding-top: clamp(0.35rem, 1vh, 0.7rem);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .scene-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 700;
+            color: var(--color-green);
+            font-size: 0.78rem;
+            transition: var(--transition-fast);
+        }
+
+        .scene-card-link:hover { gap: 0.8rem; }
+
+        .scene-card-link svg {
+            width: 15px; height: 15px;
+            transition: var(--transition-fast);
+        }
+
+        .scene-card-link:hover svg { transform: translateX(4px); }
+
+        .scene-card-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.76rem;
+            color: var(--color-text-muted);
+        }
+
+        .scene-card-rating svg {
+            width: 13px; height: 13px;
+            fill: var(--color-sprout);
+        }
+
+        /* ===== 第3页：名言 + 数据 + 页脚 ===== */
+        .page--quote {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5.5rem 2.5rem 2rem;
+            gap: clamp(1.2rem, 3.2vh, 2.6rem);
+        }
+
+        .quote-block { max-width: 920px; }
+
+        .quote-mark {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            line-height: 0.8;
+            color: var(--color-leaf);
+            margin-bottom: clamp(0.4rem, 1.2vh, 0.9rem);
+        }
+
+        .quote-cn {
+            font-size: clamp(1.35rem, 3.1vw, 2.5rem);
+            font-weight: 900;
+            color: var(--color-forest);
+            line-height: 1.55;
+            letter-spacing: 0.02em;
+            margin-bottom: clamp(0.7rem, 2vh, 1.3rem);
+        }
+
+        .quote-en {
+            font-size: clamp(0.78rem, 1.25vw, 1rem);
+            color: var(--color-text-muted);
+            line-height: 1.75;
+            font-style: italic;
+            max-width: 760px;
+            margin: 0 auto clamp(0.9rem, 2.2vh, 1.5rem);
+        }
+
+        .quote-author {
+            font-size: clamp(0.78rem, 1.15vw, 0.92rem);
+            font-weight: 700;
+            color: var(--color-green);
+            letter-spacing: 0.06em;
+        }
+
+        .quote-author span {
+            display: block;
+            margin-top: 0.3rem;
+            font-size: 0.85em;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--color-text-muted);
+        }
+
+        /* ===== 统计数据区域（缩小版） ===== */
+        .stats-section {
+            width: 100%;
+            max-width: 900px;
+            background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-forest-mid) 100%);
+            border-radius: var(--radius-md);
+            padding: clamp(1rem, 2.6vh, 1.7rem) clamp(1.2rem, 3vw, 2.2rem);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(0.8rem, 2vw, 1.6rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(143, 188, 90, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-number {
+            font-size: clamp(1.25rem, 2.3vw, 1.85rem);
+            font-weight: 900;
+            color: var(--color-white);
+            line-height: 1;
+            margin-bottom: 0.15rem;
+        }
+
+        .stat-label {
+            font-size: clamp(0.66rem, 1vw, 0.78rem);
+            color: var(--color-moss);
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .stats-section { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 500px) {
+            .stats-section { grid-template-columns: 1fr; }
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: 0;
+            color: var(--color-text-muted);
+            font-size: 0.78rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.6rem;
+            margin-bottom: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--color-text-light);
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover { color: var(--color-green); }
+
+        .footer-divider {
+            width: 54px; height: 2px;
+            background: var(--color-leaf);
+            border-radius: 3px;
+            margin: 0 auto 0.9rem;
+        }
+
+        /* ===== 自定义光标跟随 ===== */
+        .cursor-glow {
+            position: fixed;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(143, 188, 90, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s;
+        }
+
+        /* ===== 滚动显示动画 ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== 小屏幕回退：关闭整页吸附，恢复自然滚动 ===== */
+        @media (max-width: 900px), (max-height: 620px) {
+            html { scroll-snap-type: none; }
+
+            .page {
+                height: auto;
+                min-height: 100vh;
+                overflow: visible;
+            }
+
+            .page--scenes,
+            .page--quote { padding: 6rem 1.5rem 3rem; }
+
+            .hero { padding: 8rem 1.5rem 6rem; }
+
+            .scenes-grid {
+                flex: none;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-rows: none;
+                gap: 1.2rem;
+            }
+
+            .scene-card { height: auto; }
+            .scene-card-visual { flex: none; height: 150px; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 640px) {
+            .scenes-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== 导航栏 ===== -->
+<nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">
+        <svg viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+            <path d="M16 6 C16 6 10 14 10 19 C10 22.3 12.7 25 16 25 C19.3 25 22 22.3 22 19 C22 14 16 6 16 6Z" fill="currentColor" opacity="0.3"/>
+            <path d="M16 10 C16 10 13 16 13 18.5 C13 20.4 14.6 22 16 22 C17.4 22 19 20.4 19 18.5 C19 16 16 10 16 10Z" fill="currentColor"/>
+        </svg>
+        Echoes of Earth
+    </a>
+    <ul class="nav-links">
+        <li><a href="#hero">首页</a></li>
+        <li><a href="#scenes">场景</a></li>
+        <li><a href="#about">关于我们</a></li>
+    </ul>
+</nav>
+
+<!-- ===== 流动背景 ===== -->
+<div class="ambient-bg">
+    <div class="ambient-blob"></div>
+    <div class="ambient-blob"></div>
+    <div class="ambient-blob"></div>
+</div>
+
+<!-- ===== 光标跟随光晕 ===== -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ===== 右侧页码指示点 ===== -->
+<div class="page-dots" id="pageDots">
+    <button class="page-dot active" type="button" aria-label="第 1 页：封面"></button>
+    <button class="page-dot" type="button" aria-label="第 2 页：场景探索"></button>
+    <button class="page-dot" type="button" aria-label="第 3 页：结语"></button>
+</div>
+
+<!-- ===== 第1页：封面 ===== -->
+<section class="page hero" id="hero">
+    <div id="particles-container"></div>
+
+    <div class="hero-badge reveal" data-delay="100">
+        <span class="dot"></span>
+        2026 全新场景已上线
+    </div>
+
+    <h1 class="cover-title reveal" data-delay="250">
+        万物有回声
+        <span class="cover-title-en">Echoes of Earth</span>
+    </h1>
+
+    <div class="cover-divider reveal" data-delay="400"></div>
+
+    <p class="hero-subtitle reveal" data-delay="450">
+        从脚边的苔藓到远山的草甸，从苇荡的水路到火后的疏林——六片土地，六种回声。在沉浸式探索中读懂生态，学会守护。
+    </p>
+
+    <div class="hero-actions reveal" data-delay="600">
+        <a href="index.html" class="btn-primary">
+            开始探索
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#about" class="btn-secondary">了解更多</a>
+    </div>
+
+    <div class="scroll-indicator reveal" data-delay="800">
+        <div class="scroll-mouse"></div>
+        <span>向下滚动</span>
+    </div>
+</section>
+
+<!-- ===== 第2页：场景探索 ===== -->
+<section class="page page--scenes" id="scenes">
+    <div class="section-header reveal">
+        <span class="section-label">探索场景</span>
+        <h2 class="section-title">
+            选择你的探索之旅
+            <span class="section-title-en">Choose Your Journey of Discovery</span>
+        </h2>
+        <p class="section-desc">六片土地，六种生态。选一处出发，去听见那里的回声。</p>
+    </div>
+
+    <div class="scenes-grid">
+
+        <!-- 场景1：苔痕之下（森林） -->
+        <div class="scene-card reveal" data-delay="0">
+            <div class="scene-card-visual" style="background: linear-gradient(180deg, #e7f1d8 0%, #cfe2b6 100%);">
+                <svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 林间光束 -->
+                    <path d="M118 0 L176 0 L146 130 L94 130 Z" fill="#ffffff" opacity="0.35"/>
+                    <path d="M248 0 L284 0 L270 130 L238 130 Z" fill="#ffffff" opacity="0.25"/>
+                    <!-- 背景树干 -->
+                    <rect x="26" y="0" width="20" height="130" fill="#6b4f3a" opacity="0.30"/>
+                    <rect x="352" y="0" width="26" height="130" fill="#6b4f3a" opacity="0.25"/>
+                    <!-- 苔藓巨石 -->
+                    <ellipse cx="200" cy="120" rx="150" ry="52" fill="#7f9268"/>
+                    <ellipse cx="196" cy="112" rx="140" ry="44" fill="#93a877"/>
+                    <!-- 苔痕斑块 -->
+                    <ellipse cx="140" cy="106" rx="42" ry="14" fill="#aac283" opacity="0.9"/>
+                    <ellipse cx="252" cy="116" rx="34" ry="11" fill="#b7ce91" opacity="0.85"/>
+                    <ellipse cx="196" cy="96" rx="26" ry="9" fill="#c2d99e" opacity="0.8"/>
+                    <!-- 蕨叶 -->
+                    <path d="M74 122 q16 -34 44 -42" stroke="#3f6b3a" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+                    <path d="M86 108 q-14 -4 -20 -14 M96 96 q-12 -8 -14 -20 M108 88 q-8 -10 -6 -22" stroke="#4f7c46" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                    <!-- 孢子枝 -->
+                    <path d="M300 118 q12 -30 8 -46" stroke="#4c6b3f" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <circle cx="308" cy="72" r="4" fill="#8aa86a"/>
+                    <!-- 小蘑菇 -->
+                    <rect x="118" y="118" width="4" height="10" fill="#f4f1e6" rx="2"/>
+                    <ellipse cx="120" cy="118" rx="9" ry="6" fill="#d96b52"/>
+                    <!-- 光斑 -->
+                    <circle cx="176" cy="60" r="3" fill="#ffffff" opacity="0.6"/>
+                    <circle cx="236" cy="44" r="2" fill="#ffffff" opacity="0.5"/>
+                    <circle cx="146" cy="34" r="2.5" fill="#ffffff" opacity="0.4"/>
+                </svg>
+            </div>
+            <div class="scene-card-content">
+                <span class="scene-card-tag">森林</span>
+                <h3 class="scene-card-title">苔痕之下</h3>
+                <p class="scene-card-en">Beneath the Moss Traces</p>
+                <p class="scene-card-desc">以脚边最不起眼的苔藓为起点，探索森林地被层的微观世界。</p>
+                <div class="scene-card-footer">
+                    <a href="index.html" class="scene-card-link">
+                        进入场景
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <div class="scene-card-rating">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-5.18 3.25L8 14.14l5-4.87L12 2z"/></svg>
+                        4.9
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 场景2：苇荡深处（湿地） -->
+        <div class="scene-card reveal" data-delay="100">
+            <div class="scene-card-visual" style="background: linear-gradient(180deg, #e9eede 0%, #cfe0d4 100%);">
+                <svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 落日 -->
+                    <circle cx="298" cy="44" r="22" fill="#f2d9a0" opacity="0.9"/>
+                    <!-- 远岸 -->
+                    <path d="M0 92 q60 -12 120 -4 q70 9 140 -2 q70 -11 140 2 v42 H0 Z" fill="#9fb08a" opacity="0.6"/>
+                    <!-- 水面 -->
+                    <rect y="100" width="400" height="30" fill="#b9cdbb"/>
+                    <path d="M0 104 h400 M0 112 h400 M0 121 h400" stroke="#dce8dc" stroke-width="1.5" opacity="0.7"/>
+                    <!-- 左侧芦苇 -->
+                    <path d="M40 130 q4 -60 0 -84 M58 130 q-4 -50 2 -72 M78 130 q2 -55 6 -76" stroke="#7c8f5e" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+                    <ellipse cx="40" cy="42" rx="5" ry="14" fill="#a8895e"/>
+                    <ellipse cx="60" cy="54" rx="4.5" ry="12" fill="#b99a68"/>
+                    <ellipse cx="84" cy="50" rx="5" ry="13" fill="#a8895e"/>
+                    <!-- 右侧芦苇 -->
+                    <path d="M330 130 q6 -64 2 -88 M352 130 q-4 -52 4 -74" stroke="#7c8f5e" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                    <ellipse cx="332" cy="38" rx="5" ry="14" fill="#b99a68"/>
+                    <ellipse cx="356" cy="52" rx="4.5" ry="12" fill="#a8895e"/>
+                    <!-- 水鸟 -->
+                    <path d="M180 46 q10 -10 20 0 M212 40 q9 -9 18 0" stroke="#6c7a58" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <!-- 浮萍 -->
+                    <circle cx="150" cy="112" r="4" fill="#8fae7c"/>
+                    <circle cx="168" cy="118" r="3" fill="#a3bd8c"/>
+                    <circle cx="238" cy="116" r="3.5" fill="#8fae7c"/>
+                </svg>
+            </div>
+            <div class="scene-card-content">
+                <span class="scene-card-tag">湿地</span>
+                <h3 class="scene-card-title">苇荡深处</h3>
+                <p class="scene-card-en">Deep in the Reed Marshes</p>
+                <p class="scene-card-desc">以芦苇荡为入口，深入湿地腹地，探索水陆交界处的隐秘生态。</p>
+                <div class="scene-card-footer">
+                    <a href="index.html" class="scene-card-link">
+                        进入场景
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <div class="scene-card-rating">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-5.18 3.25L8 14.14l5-4.87L12 2z"/></svg>
+                        4.8
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 场景3：牧野长风（草原） -->
+        <div class="scene-card reveal" data-delay="200">
+            <div class="scene-card-visual" style="background: linear-gradient(180deg, #f2f6dc 0%, #d8e7ab 100%);">
+                <svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 流云 -->
+                    <ellipse cx="94" cy="28" rx="54" ry="13" fill="#ffffff" opacity="0.85"/>
+                    <ellipse cx="312" cy="20" rx="42" ry="10" fill="#ffffff" opacity="0.7"/>
+                    <!-- 远丘 -->
+                    <path d="M0 86 q80 -22 160 -8 q90 15 160 -6 q50 -14 80 -8 v66 H0 Z" fill="#b9cf8c"/>
+                    <!-- 近坡 -->
+                    <path d="M0 104 q90 -20 190 -6 q110 15 210 -10 v42 H0 Z" fill="#93b666"/>
+                    <!-- 风的痕迹 -->
+                    <path d="M20 96 q60 -14 120 -6 M180 106 q70 -16 140 -8 M60 76 q50 -10 100 -4" stroke="#eaf4d0" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.9"/>
+                    <!-- 草叶 -->
+                    <path d="M92 120 q4 -18 -2 -28 M104 122 q6 -16 2 -26 M286 118 q4 -16 -2 -24" stroke="#5f8a3c" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <!-- 野花 -->
+                    <circle cx="180" cy="114" r="3" fill="#f0c063"/>
+                    <circle cx="196" cy="120" r="2.4" fill="#e9a94f"/>
+                    <circle cx="240" cy="116" r="2.6" fill="#f0c063"/>
+                </svg>
+            </div>
+            <div class="scene-card-content">
+                <span class="scene-card-tag">草原</span>
+                <h3 class="scene-card-title">牧野长风</h3>
+                <p class="scene-card-en">The Eternal Wind of the Plains</p>
+                <p class="scene-card-desc">以草原上永恒吹拂的风为线索，探索开阔原野上生命的韧性。</p>
+                <div class="scene-card-footer">
+                    <a href="index.html" class="scene-card-link">
+                        进入场景
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <div class="scene-card-rating">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-5.18 3.25L8 14.14l5-4.87L12 2z"/></svg>
+                        4.9
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 场景4：草甸云隙（高山） -->
+        <div class="scene-card reveal" data-delay="300">
+            <div class="scene-card-visual" style="background: linear-gradient(180deg, #e4edf2 0%, #cfe0e6 100%);">
+                <svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 雪山 -->
+                    <path d="M60 118 L150 26 L214 96 L246 62 L322 118 Z" fill="#8fa3ad"/>
+                    <path d="M150 26 L186 62 L166 74 L140 52 Z" fill="#f2f7f8"/>
+                    <path d="M246 62 L272 88 L252 96 L232 76 Z" fill="#eef4f6"/>
+                    <!-- 云带（云隙） -->
+                    <ellipse cx="120" cy="84" rx="76" ry="15" fill="#ffffff" opacity="0.85"/>
+                    <ellipse cx="292" cy="90" rx="64" ry="13" fill="#ffffff" opacity="0.8"/>
+                    <!-- 高山草甸 -->
+                    <path d="M0 108 q70 -14 150 -4 q100 12 250 -6 v32 H0 Z" fill="#9dbb72"/>
+                    <!-- 高原花卉 -->
+                    <circle cx="96" cy="112" r="4" fill="#e88ea6"/>
+                    <circle cx="112" cy="118" r="3" fill="#d9a1e0"/>
+                    <circle cx="148" cy="114" r="3.6" fill="#f0d16b"/>
+                    <circle cx="300" cy="112" r="4" fill="#e88ea6"/>
+                    <circle cx="322" cy="118" r="3" fill="#f0d16b"/>
+                    <circle cx="264" cy="116" r="3.2" fill="#d9a1e0"/>
+                    <!-- 鼠兔 -->
+                    <ellipse cx="206" cy="112" rx="9" ry="6" fill="#8a7f6a"/>
+                    <circle cx="198" cy="106" r="4.4" fill="#8a7f6a"/>
+                    <ellipse cx="194" cy="99" rx="3" ry="4" fill="#8a7f6a"/>
+                </svg>
+            </div>
+            <div class="scene-card-content">
+                <span class="scene-card-tag">高山</span>
+                <h3 class="scene-card-title">草甸云隙</h3>
+                <p class="scene-card-en">Meadow Beneath Cloud-Gaps</p>
+                <p class="scene-card-desc">在高海拔开阔地貌，跟随流云与风的回声，探寻高原花卉、地被、啮齿动物的依存关系，体会气候变暖对高山生态的威胁。</p>
+                <div class="scene-card-footer">
+                    <a href="index.html" class="scene-card-link">
+                        进入场景
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <div class="scene-card-rating">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-5.18 3.25L8 14.14l5-4.87L12 2z"/></svg>
+                        4.8
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 场景5：砾石之间（荒漠） -->
+        <div class="scene-card reveal" data-delay="400">
+            <div class="scene-card-visual" style="background: linear-gradient(180deg, #f8ecd6 0%, #ecd8b4 100%);">
+                <svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 烈日 -->
+                    <circle cx="316" cy="32" r="24" fill="#f6d489" opacity="0.9"/>
+                    <!-- 远山 -->
+                    <path d="M0 92 L58 70 L112 92 L178 74 L246 96 L310 78 L400 96 V130 H0 Z" fill="#dcc49b"/>
+                    <!-- 戈壁地面 -->
+                    <rect y="96" width="400" height="34" fill="#e6d2ad"/>
+                    <path d="M0 101 h400 M0 113 h400" stroke="#dcc79f" stroke-width="1.5"/>
+                    <!-- 砾石 -->
+                    <ellipse cx="60" cy="112" rx="13" ry="7" fill="#a9a08c"/>
+                    <ellipse cx="132" cy="120" rx="17" ry="8" fill="#948b78"/>
+                    <ellipse cx="352" cy="112" rx="12" ry="6" fill="#b3aa95"/>
+                    <ellipse cx="176" cy="126" rx="9" ry="5" fill="#8f8674"/>
+                    <ellipse cx="286" cy="122" rx="15" ry="7" fill="#a19a86"/>
+                    <!-- 骆驼刺 -->
+                    <path d="M96 108 q10 -18 22 -24 M96 108 q-8 -14 -18 -18 M96 108 q14 -10 26 -18" stroke="#8a9a5e" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <circle cx="118" cy="82" r="3" fill="#a8b874"/>
+                    <path d="M320 112 q8 -14 18 -18 M320 112 q-8 -10 -16 -12" stroke="#8a9a5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                    <!-- 蜥蜴 -->
+                    <path d="M226 104 q16 -4 30 2" stroke="#8f8674" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="scene-card-content">
+                <span class="scene-card-tag">荒漠</span>
+                <h3 class="scene-card-title">砾石之间</h3>
+                <p class="scene-card-en">Among the Gravel</p>
+                <p class="scene-card-desc">以荒漠中看似死寂的砾石戈壁为切入点，揭示极端环境下生命的顽强。</p>
+                <div class="scene-card-footer">
+                    <a href="index.html" class="scene-card-link">
+                        进入场景
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <div class="scene-card-rating">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-5.18 3.25L8 14.14l5-4.87L12 2z"/></svg>
+                        4.7
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 场景6：疏林烬后（山火后的森林） -->
+        <div class="scene-card reveal" data-delay="500">
+            <div class="scene-card-visual" style="background: linear-gradient(180deg, #f2e3d5 0%, #d8c8b8 100%);">
+                <svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 余烬天光 -->
+                    <circle cx="200" cy="122" r="72" fill="#e8c9a8" opacity="0.55"/>
+                    <!-- 远处残林 -->
+                    <path d="M0 96 q40 -26 70 -6 q30 -22 60 0 q34 -20 66 4 q30 -18 62 2 q34 -16 62 6 q30 -14 60 2 v28 H0 Z" fill="#7d7266" opacity="0.45"/>
+                    <!-- 焦木 -->
+                    <rect x="70" y="34" width="9" height="76" fill="#3f3a34" rx="3"/>
+                    <path d="M70 58 l-14 -10 M79 66 l12 -12" stroke="#3f3a34" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <rect x="188" y="20" width="11" height="90" fill="#4a443c" rx="3"/>
+                    <path d="M188 46 l-16 -12 M199 54 l14 -14" stroke="#4a443c" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+                    <rect x="306" y="44" width="8" height="68" fill="#3f3a34" rx="3"/>
+                    <path d="M314 66 l12 -10" stroke="#3f3a34" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+                    <!-- 灰烬地面 -->
+                    <path d="M0 108 q90 -10 200 -2 q120 9 200 -2 v26 H0 Z" fill="#b9b2a6"/>
+                    <!-- 火后先锋植物 -->
+                    <path d="M118 112 q-2 -14 -10 -20 M118 112 q4 -12 12 -16" stroke="#6fa04a" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+                    <ellipse cx="106" cy="90" rx="5" ry="3.4" fill="#7fb257" transform="rotate(-30 106 90)"/>
+                    <ellipse cx="132" cy="94" rx="5" ry="3.4" fill="#7fb257" transform="rotate(25 132 94)"/>
+                    <!-- 球果复苏的幼苗 -->
+                    <path d="M240 112 q0 -16 0 -22" stroke="#5f8a3c" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+                    <path d="M240 90 q-10 -6 -12 -14 q10 -2 12 6 q2 -8 12 -6 q-2 8 -12 14 Z" fill="#6fa04a"/>
+                    <!-- 余烬 -->
+                    <circle cx="164" cy="106" r="2.6" fill="#e08a4a" opacity="0.9"/>
+                    <circle cx="272" cy="110" r="2.2" fill="#e08a4a" opacity="0.8"/>
+                </svg>
+            </div>
+            <div class="scene-card-content">
+                <span class="scene-card-tag">山火后的森林</span>
+                <h3 class="scene-card-title">疏林烬后</h3>
+                <p class="scene-card-en">Afterglow of the Scorched Wood</p>
+                <p class="scene-card-desc">以山林火灾过后的土地作为舞台，认识火后先锋物种与球果复苏的树木，辩证理解自然火在森林生态中的作用。</p>
+                <div class="scene-card-footer">
+                    <a href="index.html" class="scene-card-link">
+                        进入场景
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <div class="scene-card-rating">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-5.18 3.25L8 14.14l5-4.87L12 2z"/></svg>
+                        4.9
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== 第3页：名言 + 数据 + 页脚 ===== -->
+<section class="page page--quote" id="about">
+
+    <!-- 名人名言（本页视觉中心） -->
+    <div class="quote-block reveal">
+        <div class="quote-mark">“</div>
+        <blockquote class="quote-cn">那些凝视大地之美的人，能从中获得生命的力量，直至一生。</blockquote>
+        <p class="quote-en">Those who contemplate the beauty of the earth find reserves of strength that will endure as long as life lasts.</p>
+        <div class="quote-author">
+            —— 蕾切尔·卡森《寂静的春天》
+            <span>Rachel Carson · Silent Spring</span>
+        </div>
+    </div>
+
+    <!-- 数据（缩小版） -->
+    <section class="stats-section reveal" data-delay="150">
+        <div class="stat-item">
+            <div class="stat-number" data-target="6">0</div>
+            <div class="stat-label">独特自然场景</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" data-target="120">0</div>
+            <div class="stat-label">环保知识点</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" data-target="5000">0</div>
+            <div class="stat-label">活跃探索者</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" data-target="98">0</div>
+            <div class="stat-label">用户满意度%</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer reveal" data-delay="300">
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">场景介绍</a>
+            <a href="#">环保知识</a>
+            <a href="#">联系我们</a>
+            <a href="#">隐私政策</a>
+        </div>
+        <div class="footer-divider"></div>
+        <p>&copy; 2026 EcoExplorer 自然探索. 用热爱守护每一片绿色.</p>
+    </footer>
+
+</section>
+
+<!-- ===== JavaScript ===== -->
+<script>
+(function() {
+    'use strict';
+
+    // ===== 1. 导航栏滚动效果 =====
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        lastScroll = currentScroll;
+    });
+
+    // ===== 2. 光标跟随光晕 =====
+    const cursorGlow = document.getElementById('cursorGlow');
+    let mouseX = 0, mouseY = 0;
+    let glowX = 0, glowY = 0;
+
+    document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animateGlow() {
+        glowX += (mouseX - glowX) * 0.1;
+        glowY += (mouseY - glowY) * 0.1;
+        cursorGlow.style.left = glowX + 'px';
+        cursorGlow.style.top = glowY + 'px';
+        requestAnimationFrame(animateGlow);
+    }
+    animateGlow();
+
+    // ===== 3. 粒子系统（飘落的叶子/光点） =====
+    const particlesContainer = document.getElementById('particles-container');
+    const particleCount = 25;
+
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // 随机大小和位置
+        const size = Math.random() * 12 + 6;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 15 + 15;
+        const delay = Math.random() * 20;
+        
+        // 随机形状：圆形或叶子形
+        const isLeaf = Math.random() > 0.5;
+        
+        if (isLeaf) {
+            // 叶子形状
+            particle.innerHTML = '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22L6.66 19.97C7.04 20.01 7.42 20.04 7.8 20.04C12.22 20.04 16.72 17.55 19.28 12.78C20.28 11 20.62 9.12 20.14 7.43C19.37 4.79 16.73 3.38 14.07 3.88C12.5 4.18 11.17 5.05 10.26 6.34" stroke="' + 
+                ['#81c784', '#a5d6a7', '#c8e6c9', '#aed581', '#9ccc65'][Math.floor(Math.random() * 5)] + 
+                '" stroke-width="1.5" fill="none"/></svg>';
+        } else {
+            // 圆形光点
+            particle.innerHTML = '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="' + 
+                ['#e8f5e9', '#c8e6c9', '#a5d6a7', '#f1f8e9', '#e8f5e9'][Math.floor(Math.random() * 5)] + 
+                '" opacity="0.6"/></svg>';
+        }
+        
+        particle.style.left = left + '%';
+        particle.style.animationDuration = duration + 's';
+        particle.style.animationDelay = delay + 's';
+        particlesContainer.appendChild(particle);
+        
+        // 动画结束后移除并重新创建
+        setTimeout(function() {
+            particle.remove();
+            createParticle();
+        }, (duration + delay) * 1000);
+    }
+
+    // 初始创建粒子
+    for (let i = 0; i < particleCount; i++) {
+        createParticle();
+    }
+
+    // ===== 4. 卡片3D倾斜效果 =====
+    const cards = document.querySelectorAll('.scene-card');
+
+    cards.forEach(function(card) {
+        card.addEventListener('mousemove', function(e) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / centerY * -5;
+            const rotateY = (x - centerX) / centerX * 5;
+            
+            card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-12px) scale(1.02)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+        });
+    });
+
+    // ===== 5. 滚动显示动画 (Intersection Observer) =====
+    // 规则：
+    //   进入视口        → 播放进入动画，并保持显示（停留在页面时不会消失）
+    //   完全离开视口    → 静默重置回初始状态
+    //   再次进入视口    → 重新播放动画
+    function createRevealObserver(elements, ratio, rootMargin) {
+        // 在视口外把元素还原成初始状态（不播放淡出动画，避免边缘闪烁）
+        function reset(el) {
+            if (el._revealTimer) {
+                clearTimeout(el._revealTimer);
+                el._revealTimer = null;
+            }
+            if (!el.classList.contains('visible')) return;
+
+            el.style.transition = 'none';
+            el.classList.remove('visible');
+            if (el.style.transform) el.style.transform = ''; // 清掉卡片悬停时残留的行内 transform
+            void el.offsetWidth; // 强制回流，立即落到初始态
+            el.style.transition = '';
+        }
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                const el = entry.target;
+
+                if (entry.intersectionRatio === 0) {
+                    // 完全离开视口：重置，等待下一次进入时重播
+                    reset(el);
+                    return;
+                }
+
+                // 已进入视口且尚未显示：按 data-delay 交错播放
+                if (entry.intersectionRatio >= ratio &&
+                    !el.classList.contains('visible') &&
+                    !el._revealTimer) {
+                    const delay = parseInt(el.getAttribute('data-delay')) || 0;
+                    el._revealTimer = setTimeout(function() {
+                        el._revealTimer = null;
+                        el.classList.add('visible');
+                    }, delay);
+                }
+            });
+        }, {
+            threshold: [0, ratio],
+            rootMargin: rootMargin
+        });
+
+        function observeAll() {
+            elements.forEach(function(el) {
+                observer.observe(el);
+            });
+        }
+        observeAll();
+
+        return {
+            // 重置并重新观察（用于前进/后退恢复页面时重播动画）
+            replay: function() {
+                observer.disconnect();
+                elements.forEach(reset);
+                observeAll();
+            }
+        };
+    }
+
+    const revealAnim = createRevealObserver(document.querySelectorAll('.reveal'), 0.15, '0px');
+
+    // ===== 6. 数字滚动动画 =====
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statsSection = document.querySelector('.stats-section');
+    let statsRunId = 0;      // 每次重播自增，用于中断上一轮数字动画
+    let statsObserver = null;
+
+    if (statsSection) {
+        statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.intersectionRatio >= 0.5) {
+                    animateStats();        // 进入视口：播放滚动
+                } else if (entry.intersectionRatio === 0) {
+                    resetStats();          // 完全离开视口：归零，下次重新播放
+                }
+            });
+        }, { threshold: [0, 0.5] });
+        statsObserver.observe(statsSection);
+    }
+
+    // 完全离开视口时把数字归零，使再次进入时能重新滚动
+    function resetStats() {
+        statsRunId++; // 中断进行中的动画
+        statNumbers.forEach(function(stat) {
+            stat.textContent = '0';
+        });
+    }
+
+    function animateStats() {
+        const runId = ++statsRunId;
+        statNumbers.forEach(function(stat) {
+            const target = parseInt(stat.getAttribute('data-target'));
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function updateNumber(currentTime) {
+                if (runId !== statsRunId) return; // 已离开视口，停止本轮
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // easeOutExpo 缓动
+                const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                const current = Math.floor(easeOut * target);
+                
+                stat.textContent = current.toLocaleString();
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateNumber);
+                } else {
+                    stat.textContent = target.toLocaleString();
+                }
+            }
+
+            requestAnimationFrame(updateNumber);
+        });
+    }
+
+    // ===== 7. 平滑滚动 =====
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            // 点击左上角 Logo（href="#"）回到第一页 / 页面顶部
+            if (targetId === '#') { goToPage(0); return; }
+            
+            const targetElement = document.querySelector(targetId);
+            if (!targetElement) return;
+
+            // 整页模式下：滚动到目标所在的那一整页
+            const targetPage = targetElement.closest('.page') || targetElement;
+            const pageIndex = pages.indexOf(targetPage);
+            if (pageIndex >= 0) {
+                goToPage(pageIndex);
+            } else {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // ===== 8. 卡片进入视口时的交错动画 =====
+    // 场景卡片本身带有 .reveal，已由上面的 revealAnim 统一处理，
+    // 这里只补充没有 .reveal 的卡片，避免同一元素被两个观察器重复处理。
+    const extraCards = document.querySelectorAll('.scene-card:not(.reveal)');
+    if (extraCards.length) {
+        createRevealObserver(extraCards, 0.1, '0px');
+    }
+
+    // ===== 9. 浏览器前进/后退（bfcache）回到本页时重新播放动画 =====
+    window.addEventListener('pageshow', function(e) {
+        if (!e.persisted) return; // 仅在从缓存恢复本页时重播
+
+        revealAnim.replay();
+
+        if (statsObserver && statsSection) {
+            resetStats();
+            statsObserver.disconnect();
+            statsObserver.observe(statsSection);
+        }
+    });
+
+    // ===== 10. 整页滚动分页 =====
+    // 滚轮 / 方向键一次翻一页，每次停在同一屏；页面高度为整屏，配合 CSS scroll-snap 吸附。
+    const pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+    const dots = Array.prototype.slice.call(document.querySelectorAll('.page-dot'));
+    const rootEl = document.documentElement;
+    let pageLocked = false;      // 翻页动画进行中
+    let wheelIdle = true;        // 一次滚动手势是否已经结束
+    let wheelIdleTimer = null;
+
+    // 与 CSS 中的回退断点保持一致：小屏不做整页吸附
+    function paginationEnabled() {
+        return !window.matchMedia('(max-width: 900px), (max-height: 620px)').matches;
+    }
+
+    function pageOffset(page) {
+        return page.getBoundingClientRect().top + window.pageYOffset;
+    }
+
+    function currentPageIndex() {
+        let index = 0;
+        let min = Infinity;
+        pages.forEach(function(page, i) {
+            const d = Math.abs(pageOffset(page) - window.pageYOffset);
+            if (d < min) { min = d; index = i; }
+        });
+        return index;
+    }
+
+    function updateDots() {
+        const active = currentPageIndex();
+        dots.forEach(function(dot, i) {
+            dot.classList.toggle('active', i === active);
+        });
+    }
+
+    function goToPage(target, instant) {
+        if (!pages.length) return;
+        target = Math.max(0, Math.min(pages.length - 1, target));
+
+        const startY = window.pageYOffset;
+        const endY = pageOffset(pages[target]);
+
+        // 动画期间临时接管滚动：关掉 CSS 平滑与吸附，避免和浏览器抢滚动
+        function restore() {
+            rootEl.style.scrollBehavior = '';
+            rootEl.style.scrollSnapType = '';
+        }
+
+        if (instant || !paginationEnabled() || Math.abs(endY - startY) < 2) {
+            rootEl.style.scrollBehavior = 'auto';
+            rootEl.style.scrollSnapType = 'none';
+            window.scrollTo(0, endY);
+            requestAnimationFrame(restore);
+            updateDots();
+            return;
+        }
+
+        const distance = endY - startY;
+        const duration = Math.min(1000, 420 + Math.abs(distance) * 0.5);
+        const startTime = performance.now();
+        pageLocked = true;
+        rootEl.style.scrollBehavior = 'auto';
+        rootEl.style.scrollSnapType = 'none';
+
+        function step(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            // easeInOutCubic
+            const eased = progress < 0.5
+                ? 4 * progress * progress * progress
+                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+            window.scrollTo(0, startY + distance * eased);
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+                return;
+            }
+
+            window.scrollTo(0, endY);
+            restore();
+            updateDots();
+            setTimeout(function() { pageLocked = false; }, 80);
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    window.addEventListener('wheel', function(e) {
+        if (!paginationEnabled() || e.ctrlKey) return; // 小屏或页面缩放时交给浏览器
+        e.preventDefault();
+
+        // 一次滚动手势（滚轮一下 或 触控板惯性流）只翻一页
+        const wasIdle = wheelIdle;
+        wheelIdle = false;
+        clearTimeout(wheelIdleTimer);
+        wheelIdleTimer = setTimeout(function() { wheelIdle = true; }, 140);
+
+        if (pageLocked || !wasIdle || Math.abs(e.deltaY) < 6) return;
+        goToPage(currentPageIndex() + (e.deltaY > 0 ? 1 : -1));
+    }, { passive: false });
+
+    window.addEventListener('keydown', function(e) {
+        if (!paginationEnabled()) return;
+
+        let delta = 0;
+        switch (e.key) {
+            case 'ArrowDown':
+            case 'PageDown':
+            case ' ':
+                delta = 1;
+                break;
+            case 'ArrowUp':
+            case 'PageUp':
+                delta = -1;
+                break;
+            case 'Home':
+                e.preventDefault();
+                goToPage(0);
+                return;
+            case 'End':
+                e.preventDefault();
+                goToPage(pages.length - 1);
+                return;
+            default:
+                return;
+        }
+
+        e.preventDefault();
+        goToPage(currentPageIndex() + delta);
+    });
+
+    dots.forEach(function(dot, i) {
+        dot.addEventListener('click', function() {
+            goToPage(i);
+        });
+    });
+
+    // 原生滚动（拖动滚动条、触控板）时同步页码点
+    window.addEventListener('scroll', function() {
+        if (!pageLocked) updateDots();
+    }, { passive: true });
+
+    // 窗口尺寸变化后重新对准当前页
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            goToPage(currentPageIndex(), true);
+        }, 150);
+    });
+
+    updateDots();
+
+})();
+</script>
+
+</body>
+</html>

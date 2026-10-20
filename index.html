@@ -1,0 +1,40 @@
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="theme-color"
+      content="#171717"
+    />
+    <meta
+      name="description"
+      content="Sabah Eco World - 基于真实地理数据的交互式森林生态探索"
+    />
+    <title>Sabah Eco World | 生态调查</title>
+    <script>
+      // 根路径访问时跳转到落地页《万物有回声 ECHOES OF EARTH》；
+      // 从落地页"开始探索"进入的是 /index.html，不受影响
+      if (location.pathname === '/' || location.pathname === '') {
+        location.replace(
+          '/' + encodeURI('万物有回声ECHOES OF EARTH.html')
+        )
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 3D 地图容器 -->
+      <div id="eco-world"></div>
+
+      <!-- 生态调查信息面板 -->
+
+
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

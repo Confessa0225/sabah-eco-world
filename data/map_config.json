@@ -1,0 +1,11 @@
+
+{
+  "region": "Danum Valley, Sabah, Malaysia",
+  "center_lon": 117.8,
+  "center_lat": 4.98,
+  "width_km": 3,
+  "height_km": 3,
+  "terrain_source": "Copernicus DEM",
+  "landcover_source": "ESA WorldCover",
+  "terrain_vertical_exaggeration": 1.0
+}
